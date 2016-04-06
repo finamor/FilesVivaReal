@@ -24,7 +24,7 @@
     <ListingDataFeed xmlns="http://www.vivareal.com/schemas/1.0/VRSync" xsi:schemaLocation="http://www.vivareal.com/schemas/1.0/VRSync http://xml.vivareal.com/vrsync.xsd">
       <Header>
         <Provider>ZAPAUX</Provider>
-        <Email>integracoes@vivareal.com</Email>
+        <Email>VIVAREAL@vivareal.com</Email>
       </Header>
       <Listings>
         <xsl:for-each select="Imovel">
