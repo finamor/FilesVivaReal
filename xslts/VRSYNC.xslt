@@ -38,14 +38,28 @@
       <xsl:copy-of select="x:Country"/>
       <xsl:copy-of select="x:City"/>
       <xsl:copy-of select="x:State"/>
+      <xsl:copy-of select="x:Zone"/>
+      <xsl:copy-of select="x:Province"/>
+      <xsl:copy-of select="x:PostalCode"/>
+      <xsl:copy-of select="x:Latitude"/>
+      <xsl:copy-of select="x:Longitude"/>
       <xsl:copy-of select="x:Neighborhood"/>
       <xsl:if test="x:Address">
-        <xsl:element name="Address">
-          <xsl:value-of select="normalize-space(substring-before(x:Address, ','))"/>
-        </xsl:element>
-        <xsl:element name="StreetNumber">
-          <xsl:value-of select="normalize-space(substring-after(x:Address, ','))"/>
-        </xsl:element>
+        <xsl:choose>
+          <xsl:when test="contains(x:Address, ',')">
+            <xsl:element name="Address">
+              <xsl:value-of select="normalize-space(substring-before(x:Address, ','))"/>
+            </xsl:element>
+            <xsl:element name="StreetNumber">
+              <xsl:value-of select="normalize-space(substring-after(x:Address, ','))"/>
+            </xsl:element>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:element name="Address">
+              <xsl:value-of select="x:Address"/>
+            </xsl:element>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:if>
     </Location>
   </xsl:template>

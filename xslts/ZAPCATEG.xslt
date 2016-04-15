@@ -23,7 +23,7 @@
     <ListingDataFeed xmlns="http://www.vivareal.com/schemas/1.0/VRSync" xsi:schemaLocation="http://www.vivareal.com/schemas/1.0/VRSync http://xml.vivareal.com/vrsync.xsd">
       <Header>
         <Provider>ZAP</Provider>
-        <Email>integracoes@vivareal.com</Email>
+        <Email>zap@zap.com.br</Email>
       </Header>
       <Listings>
         <xsl:for-each select="Imovel">
@@ -56,22 +56,17 @@
         </xsl:choose>
       </TransactionType>
       <Title>
+        <!--       TituloImovel -->
         <xsl:choose>
           <xsl:when test="TituloImovel != ''">
             <xsl:value-of select="TituloImovel"/>
           </xsl:when>
-          <xsl:when test="TituloAnuncio != ''">
-            <xsl:value-of select="TituloAnuncio"/>
-          </xsl:when>
-          <xsl:when test="SubTipoImovel != ''">
-            <xsl:value-of select="concat(Cidade, ' - ', SubTipoImovel, ' - ', Bairro)"/>
-          </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="concat(Cidade, ' - ', TipoImovel, ' - ', Bairro)"/>
+            <xsl:value-of select="concat(Cidade, ' - ', SubTipoImovel, ' - ', Bairro)"/>
           </xsl:otherwise>
         </xsl:choose>
       </Title>
-      <Location displayAddress="Neighborhood">
+      <Location>
         <Country abbreviation="BR">BR</Country>
         <State>
           <xsl:choose>
@@ -101,85 +96,14 @@
         <Neighborhood>
           <xsl:value-of select="Bairro"/>
         </Neighborhood>
-        <Address>
-          <xsl:choose>
-            <xsl:when test="contains(Endereco, ',')">
-              <xsl:call-template name="round">
-                <xsl:with-param name="value" select="translate(Endereco, '.', '')"/>
-              </xsl:call-template>
-            </xsl:when>
-            <xsl:when test="contains(Logradouro, ',')">
-              <xsl:call-template name="round">
-                <xsl:with-param name="value" select="translate(Logradouro, '.', '')"/>
-              </xsl:call-template>
-            </xsl:when>
-            <xsl:when test="Endereco != ''">
-                <xsl:value-of select="Endereco"/>
-              </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="Logradouro"/>
-            </xsl:otherwise>
-          </xsl:choose>
+        <Address publiclyVisible="false">
+          <xsl:value-of select="concat(Endereco, ' ')"/>
         </Address>
-        <StreetNumber>
-          <xsl:choose>
-            <xsl:when test="Numero != ''">
-              <xsl:value-of select="Numero"/>
-            </xsl:when>
-            <xsl:when test="contains(Endereco, ',')">
-              <xsl:value-of select="substring-after(Endereco, ',')"/>
-            </xsl:when>
-            <xsl:when test="contains(Logradouro, ',')">
-              <xsl:value-of select="substring-after(Logradouro, ',')"/>
-            </xsl:when>            
-          </xsl:choose>
-        </StreetNumber>
-        <xsl:choose>
-          <xsl:when test="Cep != ''">
-            <PostalCode>
-              <xsl:value-of select="Cep"/>
-            </PostalCode>
-          </xsl:when>
-          <xsl:when test="CEP != ''">
-            <PostalCode>
-              <xsl:value-of select="CEP"/>
-            </PostalCode>
-          </xsl:when>
-        </xsl:choose>
-        <xsl:choose>
-          <xsl:when test="latitude != ''">
-            <Latitude>
-              <xsl:value-of select="latitude"/>
-            </Latitude>
-          </xsl:when>
-          <xsl:when test="Latitude != ''">
-            <Latitude>
-              <xsl:value-of select="Latitude"/>
-            </Latitude>
-          </xsl:when>
-          <xsl:when test="GMapsLatitude != ''">
-            <Latitude>
-              <xsl:value-of select="GMapsLatitude"/>
-            </Latitude>
-          </xsl:when>
-        </xsl:choose>
-        <xsl:choose>
-          <xsl:when test="longitude != ''">
-            <Longitude>
-              <xsl:value-of select="longitude"/>
-            </Longitude>
-          </xsl:when>
-          <xsl:when test="Longitude != ''">
-            <Longitude>
-              <xsl:value-of select="Longitude"/>
-            </Longitude>
-          </xsl:when>
-          <xsl:when test="GMapsLongitude != ''">
-            <Longitude>
-              <xsl:value-of select="GMapsLongitude"/>
-            </Longitude>
-          </xsl:when>
-        </xsl:choose>
+        <xsl:if test="Cep != '' ">
+          <PostalCode>
+            <xsl:value-of select="Cep"/>
+          </PostalCode>
+        </xsl:if>
       </Location>
       <Details>
         <Description>
@@ -272,64 +196,26 @@
             </xsl:choose>
           </PropertyAdministrationFee>
         </xsl:if>
-        <xsl:if test="IPTU != '0,00' and IPTU != '0.00' and IPTU != '0' and IPTU != ''">
-          <YearlyTax currency="BRL">
-            <xsl:choose>
-              <xsl:when test="contains(IPTU, ',')">
-                <xsl:call-template name="round">
-                  <xsl:with-param name="value" select="translate(IPTU, '.', '')"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="translate(IPTU, '.','')"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </YearlyTax>
-        </xsl:if>
-        <xsl:if test="ValorIPTU != '0,00' and ValorIPTU != '0.00' and ValorIPTU != '0' and ValorIPTU != ''">
-          <YearlyTax currency="BRL">
-            <xsl:choose>
-              <xsl:when test="contains(ValorIPTU, ',')">
-                <xsl:call-template name="round">
-                  <xsl:with-param name="value" select="translate(ValorIPTU, '.', '')"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="translate(ValorIPTU, '.','')"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </YearlyTax>
-        </xsl:if>
-        <xsl:if test="ValorIptu != '0,00' and ValorIptu != '0.00' and ValorIptu != '0' and ValorIptu != ''">
-          <YearlyTax currency="BRL">
-            <xsl:choose>
-              <xsl:when test="contains(ValorIptu, ',')">
-                <xsl:call-template name="round">
-                  <xsl:with-param name="value" select="translate(ValorIptu, '.', '')"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="translate(ValorIptu, '.','')"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </YearlyTax>
-        </xsl:if>
-        <xsl:if test="PrecoIptuImovel != '0,00' and PrecoIptuImovel != '0.00' and PrecoIptuImovel != '0' and PrecoIptuImovel != ''">
-          <YearlyTax currency="BRL">
-            <xsl:choose>
-              <xsl:when test="contains(PrecoIptuImovel, ',')">
-                <xsl:call-template name="round">
-                  <xsl:with-param name="value" select="translate(PrecoIptuImovel, '.', '')"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="translate(PrecoIptuImovel, '.','')"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </YearlyTax>
-        </xsl:if>
         <PropertyType>
-          <xsl:value-of select="TipoImovel"/>
+          <xsl:variable name="usoComercial" select="'Comercial / '"/>
+          <xsl:variable name="usoResidencial" select="'Residencial / '"/>
+          <xsl:choose>
+            <xsl:when test="CategoriaImovel = 'Cobertura'">
+              <xsl:value-of select="'Residential / Penthouse'"/>
+            </xsl:when>
+            <xsl:when test="contains(CategoriaImovel, 'Sobrado')">
+              <xsl:value-of select="'Residencial / Sobrado'"/>
+            </xsl:when>
+            <xsl:when test="Finalidade = 'C'">
+              <xsl:value-of select="concat(usoComercial, TipoImovel)"/>
+            </xsl:when>
+            <xsl:when test="Finalidade = 'R'">
+              <xsl:value-of select="concat(usoResidencia, TipoImovel)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="concat(TipoImovel, ' / ', SubTipoImovel)"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </PropertyType>
         <LotArea unit="square metres">
           <xsl:choose>
@@ -339,7 +225,7 @@
               </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:value-of select="AreaTotal"/>
+              <xsl:value-of select="translate(AreaTotal, '.', '')"/>
             </xsl:otherwise>
           </xsl:choose>
         </LotArea>
@@ -529,9 +415,6 @@
           <Featured>true</Featured>
         </xsl:when>
         <xsl:when test="destaque = '1'">
-          <Featured>true</Featured>
-        </xsl:when>
-        <xsl:when test="TipoOferta = '2'">
           <Featured>true</Featured>
         </xsl:when>
       </xsl:choose>

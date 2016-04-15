@@ -22,8 +22,8 @@
   <xsl:template name="imoveis" match="Imoveis">
     <ListingDataFeed xmlns="http://www.vivareal.com/schemas/1.0/VRSync" xsi:schemaLocation="http://www.vivareal.com/schemas/1.0/VRSync http://xml.vivareal.com/vrsync.xsd">
       <Header>
-        <Provider>ZAP</Provider>
-        <Email>integracoes@vivareal.com</Email>
+        <Provider>ZAPS100</Provider>
+        <Email>integracaoes@vivareal.com</Email>
       </Header>
       <Listings>
         <xsl:for-each select="Imovel">
@@ -71,7 +71,7 @@
           </xsl:otherwise>
         </xsl:choose>
       </Title>
-      <Location displayAddress="Neighborhood">
+      <Location>
         <Country abbreviation="BR">BR</Country>
         <State>
           <xsl:choose>
@@ -101,39 +101,24 @@
         <Neighborhood>
           <xsl:value-of select="Bairro"/>
         </Neighborhood>
-        <Address>
-          <xsl:choose>
-            <xsl:when test="contains(Endereco, ',')">
-              <xsl:call-template name="round">
-                <xsl:with-param name="value" select="translate(Endereco, '.', '')"/>
-              </xsl:call-template>
-            </xsl:when>
-            <xsl:when test="contains(Logradouro, ',')">
-              <xsl:call-template name="round">
-                <xsl:with-param name="value" select="translate(Logradouro, '.', '')"/>
-              </xsl:call-template>
-            </xsl:when>
-            <xsl:when test="Endereco != ''">
+        <xsl:if test="Endereco != '' or Logradouro != ''">
+          <Address publiclyVisible="false">
+            <xsl:choose>
+              <xsl:when test="Endereco != '' and Numero !=''">
+                <xsl:value-of select="concat(Endereco,', ', Numero)"/>
+              </xsl:when>
+              <xsl:when test="Logradouro != '' and Numero !=''">
+                <xsl:value-of select="concat(Logradouro,', ', Numero)"/>
+              </xsl:when>
+              <xsl:when test="Endereco != ''">
                 <xsl:value-of select="Endereco"/>
               </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="Logradouro"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </Address>
-        <StreetNumber>
-          <xsl:choose>
-            <xsl:when test="Numero != ''">
-              <xsl:value-of select="Numero"/>
-            </xsl:when>
-            <xsl:when test="contains(Endereco, ',')">
-              <xsl:value-of select="substring-after(Endereco, ',')"/>
-            </xsl:when>
-            <xsl:when test="contains(Logradouro, ',')">
-              <xsl:value-of select="substring-after(Logradouro, ',')"/>
-            </xsl:when>            
-          </xsl:choose>
-        </StreetNumber>
+              <xsl:when test="Logradouro != ''">
+                <xsl:value-of select="Logradouro"/>
+              </xsl:when>
+            </xsl:choose>
+          </Address>
+        </xsl:if>
         <xsl:choose>
           <xsl:when test="Cep != ''">
             <PostalCode>
@@ -357,7 +342,14 @@
         </LivingArea>
         <xsl:if test="QtdDormitorios != '0' and QtdDormitorios != ''">
           <Bedrooms>
-            <xsl:value-of select="QtdDormitorios"/>
+            <xsl:choose>
+              <xsl:when test="QtdSuites != '0' and QtdSuites != ''">
+                <xsl:value-of select="QtdDormitorios + QtdSuites"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="QtdDormitorios"/>
+              </xsl:otherwise>
+            </xsl:choose>
           </Bedrooms>
         </xsl:if>
         <xsl:if test="QtdBanheiros != '0' and QtdBanheiros != ''">
@@ -529,9 +521,6 @@
           <Featured>true</Featured>
         </xsl:when>
         <xsl:when test="destaque = '1'">
-          <Featured>true</Featured>
-        </xsl:when>
-        <xsl:when test="TipoOferta = '2'">
           <Featured>true</Featured>
         </xsl:when>
       </xsl:choose>

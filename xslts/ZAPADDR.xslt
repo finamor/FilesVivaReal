@@ -9,39 +9,8 @@
     <xsl:value-of select="substring-before($value, ',')"/>
   </xsl:template>
 
-  <xsl:template name="hasAddress">
-    <xsl:choose>
-      <xsl:when test="Endereco != ''">
-        <xsl:value-of select="1"/>
-      </xsl:when>
-      <xsl:when test="Logradouro != ''">
-        <xsl:value-of select="1"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="0"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
-  <xsl:template name="hasStreetNumber">
-    <xsl:choose>
-      <xsl:when test="Numero != ''">
-        <xsl:value-of select="1"/>
-      </xsl:when>
-      <xsl:when test="contains(Endereco, ',') and normalize-space(substring-after(Endereco, ',')) != ''">
-        <xsl:value-of select="1"/>
-      </xsl:when>
-      <xsl:when test="contains(Logradouro, ',') and normalize-space(substring-after(Logradouro, ',')) != ''">
-        <xsl:value-of select="1"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="0"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
   <xsl:template name="address">
-    <xsl:element name="Address">
+    <Address>
       <xsl:choose>
         <xsl:when test="contains(Endereco, ',')">
           <xsl:call-template name="round">
@@ -60,11 +29,11 @@
           <xsl:value-of select="Logradouro"/>
         </xsl:when>
       </xsl:choose>
-    </xsl:element>
+    </Address>
   </xsl:template>
 
   <xsl:template name="streetNumber">
-    <xsl:element name="StreetNumber">
+    <StreetNumber>
       <xsl:choose>
         <xsl:when test="Numero != ''">
           <xsl:value-of select="Numero"/>
@@ -76,7 +45,7 @@
           <xsl:value-of select="substring-after(Logradouro, ',')"/>
         </xsl:when>
       </xsl:choose>
-    </xsl:element>
+    </StreetNumber>
   </xsl:template>
 
   <xsl:variable name="residentialApartment" select="'Residential / Apartment'"/>
@@ -168,23 +137,9 @@
           </xsl:otherwise>
         </xsl:choose>
       </Title>
-      <Location>
-        <xsl:variable name="hasAddress"><xsl:call-template name="hasAddress"/></xsl:variable>
-        <xsl:variable name="hasStreetNumber"><xsl:call-template name="hasStreetNumber"/></xsl:variable>
-        <xsl:choose>
-          <xsl:when test="$hasAddress = 1 and $hasStreetNumber = 1">
-            <xsl:attribute name="displayAddress">All</xsl:attribute>
-            <xsl:call-template name="address"/>
-            <xsl:call-template name="streetNumber"/>
-          </xsl:when>
-          <xsl:when test="$hasAddress = 1 and $hasStreetNumber = 0">
-            <xsl:attribute name="displayAddress">Street</xsl:attribute>
-            <xsl:call-template name="address"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:attribute name="displayAddress">Neighborhood</xsl:attribute>
-          </xsl:otherwise>
-        </xsl:choose>
+      <Location displayAddress="All">
+        <xsl:call-template name="address"/>
+        <xsl:call-template name="streetNumber"/>
         <Country abbreviation="BR">BR</Country>
         <State>
           <xsl:choose>
