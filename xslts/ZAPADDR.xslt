@@ -65,7 +65,7 @@
                      xsi:schemaLocation="http://www.vivareal.com/schemas/1.0/VRSync http://xml.vivareal.com/vrsync.xsd">
       <Header>
         <Provider>ZAPADDR</Provider>
-        <Email>integracoes@vivareal.com</Email>
+        <Email>suportenivel2@vivareal.com</Email>
       </Header>
       <Listings>
         <xsl:for-each select="Imovel">
