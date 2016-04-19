@@ -503,6 +503,11 @@
             <xsl:value-of select="video"/>
           </Item>
         </xsl:if>
+        <xsl:if test="videos/Video != ''">
+          <Item medium="video">
+            <xsl:value-of select="videos/Video"/>
+          </Item>
+        </xsl:if>
         <xsl:for-each select="Videos/Video">
           <Item medium="video">
             <xsl:value-of select="normalize-space(URLArquivo)"/>
