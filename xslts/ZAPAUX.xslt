@@ -24,7 +24,7 @@
     <ListingDataFeed xmlns="http://www.vivareal.com/schemas/1.0/VRSync" xsi:schemaLocation="http://www.vivareal.com/schemas/1.0/VRSync http://xml.vivareal.com/vrsync.xsd">
       <Header>
         <Provider>ZAPAUX</Provider>
-        <Email>integracoes@vivareal.com</Email>
+        <Email>suportenivel2@vivareal.com</Email>
       </Header>
       <Listings>
         <xsl:for-each select="Imovel">
@@ -501,6 +501,11 @@
         <xsl:if test="video != ''">
           <Item medium="video">
             <xsl:value-of select="video"/>
+          </Item>
+        </xsl:if>
+        <xsl:if test="videos/Video != ''">
+          <Item medium="video">
+            <xsl:value-of select="videos/Video"/>
           </Item>
         </xsl:if>
         <xsl:for-each select="Videos/Video">
