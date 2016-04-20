@@ -1,0 +1,238 @@
+RazorSQL - License Agreement
+
+BEFORE USING THE SOFTWARE, YOU SHOULD CAREFULLY READ 
+THE FOLLOWING TERMS AND CONDITIONS. USING THE 
+SOFTWARE INDICATES YOUR ACCEPTANCE OF THE TERMS AND 
+CONDITIONS. IF YOU DO NOT AGREE TO THE TERMS OF THIS 
+AGREEMENT, DO NOT USE THE SOFTWARE.
+
+Richardson Software, LLC licenses the RazorSQL software (hereinafter
+referred to as the "Software"), which includes binaries, source code,
+registration codes, license codes, and any accompanying
+documentation, to you (either an individual or single entity) only 
+upon the condition that you accept all of the terms contained in this 
+license agreement ("Agreement"). 
+
+1. GRANT OF LICENSE: Richardson Software, LLC, grants you a non-exclusive
+license to use the Software. You may use the Software on more
+than one computer system, as long as it is always used by the same 
+user. Each additional user of the Software requires an additional 
+license. 
+
+Software is copyrighted and title to Software and all associated
+intellectual property rights are retained by Richardson Software, LLC.
+Unless otherwise specified, you may not rent, lease, sublicense,
+or assign the Software to any third party.
+
+2. LIMITED DISTRIBUTION LICENSE: Distribution of registered versions of 
+the Software is strictly prohibited. Permission is granted to 
+distribute unregistered, trial versions of the Software, completely 
+unaltered and unregistered provided that it is clearly indicated that 
+the product is Shareware and should be paid for for continued use. 
+There must be no charge for the Software and if packaged with other 
+Shareware, only a small and resonable fee may be requested for 
+media/shipping. Any distribution satisfying all these distribution 
+requirements is hereby authorized. Any exceptions are only permitted 
+if specifically authorized by Richardson Software, LLC. Please contact 
+Richardson Software, LLC for exceptions, or questions. Permission to 
+distribute the Software package is not transferable, assignable, 
+saleable, or franchisable. Each vendor wishing to distribute the 
+package must independently satisfy the terms of this limited 
+distribution license. Richardson Software, LLC may revoke any permissions 
+granted here, by notifying you in writing. All rights not expressly 
+granted here are reserved to Richardson Software, LLC.  
+
+3. MAINTENANCE AND SUPPORT: 
+
+3.1 TERM AND TERMINATION OF MAINTENANCE AND SUPPORT. The initial 
+purchase of a license to the Software for a user includes 
+a one year subscription to receive maintenance and support services 
+on behalf of such user, as set forth in this 
+Section 3 (“Maintenance and Support”), commencing on the date 
+Richardson Software, LLC sends electronic confirmation with 
+registration and license key(s) to the email address provided 
+by the customer.
+
+3.2 MAINTENANCE AND SUPPORT SERVICES. Maintenance and Support means 
+that Richardson Software, LLC will provide: (a) updates and upgrades
+to the Software, if any, made publicly available by 
+Richardson Software, LLC to its maintenance and support customers 
+during the term of Maintenance and Support, and (b) At Richardson 
+Software, LLC's discretion, Richardson Software, LLC may provide 
+support through email or discussion forums at 
+Richardson Software, LLC's web site.
+
+4. TERM AND TERMINATION: This Agreement is effective until
+terminated. You may terminate this Agreement at any time by
+destroying all copies of Software. This Agreement will terminate
+immediately without notice from Richardson Software, LLC if you fail to
+comply with any provision of this Agreement. Upon termination,
+you must destroy all copies of Software.
+
+5. DISCLAIMER OF WARRANTY: The Software and any support from 
+Richardson Software, LLC are provided "AS IS" WITHOUT WARRANTY OF 
+ANY KIND EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY 
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+6. LIMITATION OF LIABILITY: THE ENTIRE RISK ARISING OUT OF
+THE USE OR PERFORMANCE OF THIS SOFTWARE AND DOCUMENTATION REMAINS
+WITH YOU. IN NO EVENT WILL Richardson Software, LLC BE LIABLE FOR ANY
+LOST PROFITS, LOST SAVINGS, SPECIAL, PUNITIVE, INCIDENTAL OR INDIRECT 
+DAMAGES OR OTHER ECONOMIC CONSEQUENTIAL DAMAGES, EVEN IF 
+Richardson Software, LLC HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH 
+DAMAGES. IN ADDITION Richardson Software, LLC WILL NOT BE LIABLE FOR 
+ANY DAMAGES CLAIMED BY YOU BASED ON ANY THIRD PARTY CLAIM. IN THE EVENT 
+THAT NOTWITHSTANDING THE FOREGOING, Richardson Software, LLC IS FOUND 
+LIABLE TO YOU FOR DAMAGES FROM ANY CAUSE WHATSOEVER, AND REGARDLESS
+OF THE FORM OF THE ACTION (WHETHER IN CONTRACT, TORT (INCLUDING
+NEGLIGENCE), PRODUCT LIABILITY OR OTHERWISE), Richardson Software, LLC's
+LIABILITY TO YOU WILL BE LIMITED TO THE AMOUNT YOU PAID FOR THE SOFTWARE.
+
+7. REFUND POLICY: To be eligible for a refund, Richardson Software, LLC 
+must receive a refund request within 30 days of the date of purchase.
+
+8. LICENSE RESTRICTIONS: You may not reverse engineer, decompile,
+disassemble, modify, translate, make any attempt to discover the 
+source code of the Software in whole or in part. You may not 
+distribute, copy, publish, assign, sell, bargain, convey, transfer, 
+pledge, lease or grant any further rights to use the Software. You 
+may not modify or create derivative work based on the Software in 
+whole or in part. You may not tamper with, alter, disable or 
+circumvent the Software's built-in license verification and 
+enforcement capabilities. You may not remove of alter any trademark, 
+copyright, logo or other proprietary notices in the Software. You may 
+not disclose any license codes in any way. 
+
+9. GENERAL PROVISIONS:
+
+9.1 CONSENT TO JURISDICTION AND FORUM SELECTION. This Agreement 
+will be interpreted and construed in accordance with the laws of 
+the State of Maryland and the United States of America, without 
+regard to conflict of law principles. The parties hereby consent 
+to the personal and exclusive jurisdiction of the state and federal 
+courts located in Montgomery County, Maryland for resolution of 
+any disputes arising out of this Agreement. 
+
+9.2 COMPLIANCE WITH LAWS. This Agreement is expressly made subject 
+to any laws, regulations, orders or other restrictions on the export 
+from the U.S. of the Software or of information related 
+thereto which may be imposed from time to time by the U.S. government 
+(“U.S. Export Laws”). Customer’s use of the Software must 
+be strictly in accordance with law. Customer shall obtain any required 
+non-U.S. governmental authorizations, including without limitation any 
+import licenses and foreign exchange permits, and, if applicable, shall 
+file or register this Agreement with the appropriate authorities.
+
+9.3 SEVERABILITY; WAIVER. If any provision of this Agreement is held 
+to be invalid or unenforceable for any reason, the remaining provisions 
+will continue in full force without being impaired or invalidated in any 
+way and the invalid or unenforceable provision shall be enforced to the 
+full extent permitted. The waiver by either party of a breach of any 
+provision of this Agreement will not operate or be interpreted as a waiver 
+of any other or subsequent breach.
+
+10. INTEGRATION: This Agreement is the entire agreement between
+you and Richardson Software, LLC relating to its subject matter.
+It supersedes all prior or contemporaneous oral or written
+communications, proposals, representations and warranties and
+prevails over any conflicting or additional terms of any quote,
+order, acknowledgment, or other communication between the parties
+relating to its subject matter during the term of this Agreement.
+No modification of this Agreement will be binding, unless in
+writing and signed by an authorized representative of each party.
+
+11. THIRD-PARTY SOFTWARE: RazorSQL ships with the jTDS JDBC driver, 
+which is covered by
+the LGPL (GNU LIBRARY GENERAL PUBLIC LICENSE).  Users can choose to
+dynamically link to this driver to connect to Microsoft SQL Server
+and Sybase databases instead of obtaining JDBC drivers for these
+databases manually. The jTDS driver can be found in the
+drivers/jtds/ directory under the RazorSQL installation directory.
+The source, binary, and license files for the jTDS driver are
+included in the jtds directory.
+
+RazorSQL ships with the PostgreSQL JDBC driver.  This
+driver is covered under the BSD License.  The license file
+is located in the drivers/postgresql directory under the RazorSQL
+installation directory.
+
+RazorSQL ships with the Oracle JDBC driver.  This driver
+is covered under the ORACLE TECHNOLOGY NETWORK
+DEVELOPMENT AND DISTRIBUTION LICENSE AGREEMENT.
+
+RazorSQL CONTAINS Runtime Modules of the DB2 Universal Database
+JDBC Type-4 Driver
+(c) Copyright IBM Corporation 2003
+All Rights Reserved
+The license file is located in the drivers/db2 directory 
+under the RazorSQL installation directory. 
+
+RazorSQL ships with the Sybase jConnect JDBC Driver. The
+license file is located in the drivers/sybase directory under
+the RazorSQL installation directory.
+
+RazorSQL ships with the Informix JDBC driver.  The license
+file is located in the drivers/informix directory under
+the RazorSQL installation directory.
+
+RazorSQL ships with the Firebird Jaybird JDBC driver.  The 
+license file is located in the drivers/firebird directory
+under the RazorSQL installation directory.
+
+RazorSQL ships with the MongoDB Java Driver. The license
+file is located in the drivers/mongodb directory
+under the RazorSQL installation directory.
+
+RazorSQL ships with the SQLite JDBC driver from xerial.org.
+The license file is located in the drivers/sqlite directory
+under the RazorSQL installation directory.
+
+RazorSQL ships with the MariaDB Java Client. The license
+file is located in the drivers/mariadb directory under
+the RazorSQL installation directory.
+
+RazorSQL ships with the UCanAccess JDBC driver.  The license
+file is located in the drivers/access directory under
+the RazorSQL installation directory.
+
+RazorSQL uses icons from the eclipse project (www.eclipse.org).
+
+RazorSQL uses the Apache Jakarta POI project for creating xls files.
+The license file is located in the poi directory under the RazorSQL
+installation directory.
+
+RazorSQL uses jxl for interfacing with Excel files. The license
+file is located in the jxl directory under the RazorSQL 
+installation directory.
+
+RazorSQL uses the jgoodies look and feel libraries.  The license file
+is located in the jgoodies directory under the RazorSQL installation
+directory.
+
+RazorSQL uses the HTML Tidy libraries. The license file is located
+in the tidy directory under the RazorSQL installation directory.
+
+RazorSQL uses the javascriptlint library for validating javascript.
+Relevant files are located in the javascriptlint directory
+under the RazorSQL installation directory.
+
+RazorSQL uses JSQLParser.  The license file is located in the
+jsqlparser diretory under the RazorSQL installation directory.
+
+RazorSQL uses the Jsch libraries for secure FTP.  The license
+file is located in the ftp directory under the RazorSQL
+installation directory.
+
+RazorSQL uses the Apache Commons Net libraries for FTP. The
+license file is located in the ftp directory under the RazorSQL
+installation directory.
+
+RazorSQL uses the JNA (Java Native Access) libraries. The
+license file is located in the jna directory under the RazorSQL
+installation directory.
+
+RazorSQL uses the Amazon Web Services (AWS) Java API libraries.
+
+RazorSQL uses the HSQLDB database engine and JDBC drivers. The 
+license files are located in the drivers/hsqldb directory under the 
+RazorSQL installation directory.
