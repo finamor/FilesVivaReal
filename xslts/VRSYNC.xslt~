@@ -16,7 +16,7 @@
   <xsl:template match="x:Listing/x:Location">
     <xsl:choose>
       <xsl:when test="not(x:StreetNumber)">
-        <xsl:call-template name="Rafa"/>
+        <xsl:call-template name="location"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:copy-of select="."/>
@@ -24,7 +24,7 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template name="Rafa">
+  <xsl:template name="location">
     <Location>
       <xsl:choose>
         <xsl:when test="x:Address[@publiclyVisible='false'] or not(x:Address) or x:Address=''">
