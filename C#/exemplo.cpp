@@ -32,7 +32,7 @@ namespace VivaRealExport
 		{
 			writer.WriteStartElement ("Header");
 			writer.WriteElementString ("Provider", "Fornecedor do Feed Brasil");
-			writer.WriteElementString ("Email", "contacto@fornecedor.com");
+			writer.WriteElementString ("Email", "rafael.xerox@gmail.com");
 			writer.WriteElementString ("ContactName", "Nome para Contato");
 			writer.WriteElementString ("Telephone", "(41)3216-2795 (11)9669-2395");
 			writer.WriteElementString ("PublishDate", "2009-08-10T11:17:14");
